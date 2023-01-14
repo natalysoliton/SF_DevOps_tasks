@@ -1,0 +1,25 @@
+Развернуть пример реализации микросервисов на основе готового репозитория на GitHub
+Описание:
+
+Для зачета по итоговому заданию модуля достаточно предоставить GitHub-репозиторий с работающим решением по развертыванию интернет-магазина носков (https://github.com/SkillfactoryCoding/DEVOPS-Kubernates-microservices-demo) в одном из публичных провайдеров. Для Yandex.Сloud это может быть Swarm или Nomad, для Amazon — это ECS.
+
+Кроме репозитория необходимо предоставить скриншоты работающего интернет-магазина. На одном скриншоте должны быть видны интернет-магазин и адресная строка.
+
+Описание инфраструктуры необходимо зафиксировать как код в одном из инструментов, который вам больше подходит. Это может быть Terraform, Cloudformation или что-то другое.
+
+В приведенном репозитории присутствуют ошибки, поэтому вам нужно самостоятельно описать IaC или использовать код из репозитория для того чтобы создать работающий проект, который мы ранее запускали в Swarm.
+
+Задание:
+
+Описать через IaC интернет-магазин носков.
+Развернуть проект.
+Сделать скриншоты.
+Предоставить доступ к репозиторию и скриншотам для проверки.
+
+
+Полезные ссылки:
+
+Sock Shop A Microservices Demo Application; -https://microservices-demo.github.io/
+Nomad Guide Quick Start; -https://learn.hashicorp.com/tutorials/nomad/get-started-intro?in=nomad/get-started
+Sock Shop on Nomad; - https://microservices-demo.github.io/deployment/nomad.html
+Sock Shop Repository. -https://github.com/SkillfactoryCoding/DEVOPS-Kubernates-user-contribs
