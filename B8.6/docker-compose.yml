@@ -1,0 +1,25 @@
+version: "3"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports: 
+      - "8080:80"
+    networks:
+      - internal
+  php:
+    image: php:fpm-alpine
+    networks:
+      - internal
+      
+  healthcheck:
+      test: curl -s http://nginx | grep works
+      interval: 1s
+      timeout: 3s
+      retries: 30
+networks:
+  internal:
+    driver: bridge
+    
+
