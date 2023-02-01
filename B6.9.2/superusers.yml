@@ -1,0 +1,21 @@
+ - hosts: webservers
+      tasks:
+          group: name=superusers
+          
+        - name: Add deployer user2 and add it to sudo
+          user: 
+            name: "user2"
+            groups: "superusers"
+            shell: /bin/bash
+            raw: sudo -i
+  
+        - name: Add deployer user3 and add it to sudo
+          user: 
+            name: "user3"
+            groups: "superusers"
+            shell: /bin/bash
+            raw: sudo -i
+        
+
+
+
