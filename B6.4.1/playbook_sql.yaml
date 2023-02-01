@@ -1,0 +1,16 @@
+# hosts – означает группу машин, на которой нужно выполниться
+# all – означает все описанные в inventory.ini
+- hosts: all
+        
+ tasks:
+  # Установка MySQL
+  - name: Ensure MySQL is at the latest version
+    ansible.builtin.apt: # модуль apt  
+      name: mysql
+      state: latest
+
+  # Запуск MySQL
+  - name: Ensure that MySQL is started
+    ansible.builtin.service: # модуль service
+      name: mysql
+      state: started # запускаем, если не запущен
