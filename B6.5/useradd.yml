@@ -1,0 +1,25 @@
+---
+- hosts: webservers
+  become: true
+  tasks:
+
+  - name: Добавить пользователя 'user1' с добавлением его в группу 'wheel'. 
+    user:
+      name: user1
+      password: <хэш пароля пользователя 'user1'. Ansible вернет сообщение с ошибкой, если просто указать пароль>
+      shell: /bin/bash
+      groups: wheel
+      append: yes
+
+  - name: Создать 2048-битовый SSH ключ для user1 в ~user1/.ssh/id_rsa
+    user:
+      name: user1
+      generate_ssh_key: yes
+      ssh_key_bits: 2048
+      ssh_key_file: .ssh/id_rsa
+
+  - name: Установить authorized key из файла id_rsa.pub
+    authorized_key:
+      user: user1
+      state: present
+      key: "{{ lookup('file', '/home/user1/.ssh/id_rsa.pub') }}"

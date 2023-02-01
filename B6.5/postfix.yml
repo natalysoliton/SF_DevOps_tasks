@@ -1,0 +1,19 @@
+---
+- hosts: webservers
+  become: true
+  
+  
+  tasks:
+  	-name: Install postfix
+ 	 	package:
+  	 	name: postfix
+  	 	state: present
+ 	 	tags:
+ 	 	  - init postfix
+  tasks:
+  	-name: Uninstall postfix
+ 	 	package:
+  	 	name: postfix
+  	 	state: present
+ 	 	tags:
+ 	 	  - drop postfix
