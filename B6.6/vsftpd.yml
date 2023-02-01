@@ -1,0 +1,32 @@
+# Конфигурация по умолчанию, анонимный вход
+- hosts: webservers
+  roles:
+  - role: vsftpd
+ 
+ # Вход локального пользователя
+- hosts: webservers
+  vars:
+   - vsftpd_local_users:
+      - name: alice
+        password: "123"
+        home: /ftp_alice
+      - name: user1
+        password: "123"
+  roles:
+   - vsftpd
+   
+ # Виртуальный логин пользователя
+- hosts: webservers
+  vars:
+   - vsftpd_share_path: '/ftp_vuser_share'
+   - vsftpd_vusers: 
+      - name: test1
+        password: 123
+      - name: test2
+        password: 123
+        local_root: '/ftp_test2_home'
+        conf: |
+          local_root=/ftp_test2_home
+          local_umask=011
+  roles: 
+   - vsftpd
